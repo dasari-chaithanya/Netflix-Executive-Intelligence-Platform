@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+root_dir = str(Path(__file__).resolve().parent.parent) if 'pages' not in __file__ else str(Path(__file__).resolve().parent.parent.parent)
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
 import streamlit as st
 from app.components.layout import section_header, grid_row
 from app.components.cards import insight_card, recommendation_card

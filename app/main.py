@@ -54,30 +54,30 @@ with st.sidebar:
     # Premium Navigation
     st.markdown("### 🏠 Platform")
     if st.button("Executive Overview", use_container_width=True):
-        st.switch_page("app/pages/01_Executive_Overview.py")
+        st.switch_page("pages/01_Executive_Overview.py")
         
     st.markdown("### 📊 Intelligence")
     if st.button("Growth Intelligence", use_container_width=True):
-        st.switch_page("app/pages/03_Growth_Intelligence.py")
+        st.switch_page("pages/03_Growth_Intelligence.py")
     if st.button("Market Expansion", use_container_width=True):
-        st.switch_page("app/pages/04_Market_Expansion.py")
+        st.switch_page("pages/04_Market_Expansion.py")
     if st.button("Content Portfolio", use_container_width=True):
-        st.switch_page("app/pages/02_Content_Portfolio.py")
+        st.switch_page("pages/02_Content_Portfolio.py")
     if st.button("Audience Strategy", use_container_width=True):
-        st.switch_page("app/pages/05_Audience_Strategy.py")
+        st.switch_page("pages/05_Audience_Strategy.py")
         
     st.markdown("### 💡 Strategy")
     if st.button("Compare Markets", use_container_width=True):
-        st.switch_page("app/pages/06_Compare_Mode.py")
+        st.switch_page("pages/06_Compare_Mode.py")
     if st.button("Strategy Sandbox", use_container_width=True):
-        st.switch_page("app/pages/06_Strategy_Sandbox.py")
+        st.switch_page("pages/06_Strategy_Sandbox.py")
     if st.button("Recommendations", use_container_width=True):
-        st.switch_page("app/pages/07_Insights_Recommendations.py")
+        st.switch_page("pages/07_Insights_Recommendations.py")
         
     st.markdown("---")
     st.markdown("### 📚 Resources")
     if st.button("Business Glossary", use_container_width=True):
-        st.switch_page("app/pages/08_Business_Glossary.py")
+        st.switch_page("pages/08_Business_Glossary.py")
         
     st.markdown("---")
     
@@ -91,4 +91,4 @@ with st.sidebar:
     global_filter_panel()
 
 # Default routing to landing page
-st.switch_page("app/pages/01_Executive_Overview.py")
+st.switch_page("pages/01_Executive_Overview.py")

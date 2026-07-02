@@ -68,5 +68,8 @@ class ExecutiveViewModel(BaseViewModel):
             "kpis": kpis,
             "summary": summary,
             "insight": insight_data,
-            "recommendation": recommendation_data
+            "recommendation": recommendation_data,
+            "avg_age": age_val,
+            "total_titles": len(self.df),
+            "freshness_pct": f"{freshness_val:.1f}%"
         }

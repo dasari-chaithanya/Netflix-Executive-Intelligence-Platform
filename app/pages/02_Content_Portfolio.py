@@ -44,3 +44,19 @@ story_card(
     recommendation="Maintain focus on mature audiences, but ensure Kids/Family content is refreshed before holiday seasons.",
     explanation={"why": "Ratings determine target demographics.", "impact": "Over-indexing mature limits family acquisition."} if portfolio_mode else None
 )
+
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Maintain focus on mature audiences but acquire 2 premium family animation series before Q4.",
+    impact="Protect household retention over holidays.",
+    confidence="89%",
+    priority="HIGH"
+)
+
+navigation_footer(
+    next_page_name="Growth Intelligence", 
+    next_page_path="pages/03_Growth_Intelligence.py", 
+    next_page_desc="Analyze the timeline of catalog expansion and acquisition pacing.", 
+    icon="📈"
+)

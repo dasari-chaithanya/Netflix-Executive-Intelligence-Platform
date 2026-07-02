@@ -50,3 +50,19 @@ story_card(
     recommendation="Consider increasing investments in emerging markets (e.g., South Korea, Spain) to capture localized growth.",
     explanation={"why": "Local content drives local subscriber growth.", "impact": "Heavy US bias limits international penetration.", "opportunity": "High ROI in APAC."} if portfolio_mode else None
 )
+
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Consider increasing investments in emerging markets (e.g., South Korea, Spain) to capture localized growth.",
+    impact="Unlock secondary regional subscriber bases.",
+    confidence="92%",
+    priority="HIGH"
+)
+
+navigation_footer(
+    next_page_name="Audience Strategy", 
+    next_page_path="pages/05_Audience_Strategy.py", 
+    next_page_desc="Examine genre dominance and long-term viewer retention.", 
+    icon="👥"
+)

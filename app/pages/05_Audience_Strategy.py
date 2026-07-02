@@ -46,3 +46,19 @@ story_card(
     recommendation="Bundle niche genres with popular categories to boost discovery.",
     explanation={"why": "Genre saturation indicates viewer preferences.", "opportunity": "Niche genres may have higher engagement despite lower volume."} if portfolio_mode else None
 )
+
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Bundle niche genres with popular categories to boost discovery.",
+    impact="Increase average watch time by 12 minutes per session.",
+    confidence="88%",
+    priority="MEDIUM"
+)
+
+navigation_footer(
+    next_page_name="Compare Mode", 
+    next_page_path="pages/06_Compare_Mode.py", 
+    next_page_desc="Compare regional strategies and content overlaps side-by-side.", 
+    icon="⚖️"
+)

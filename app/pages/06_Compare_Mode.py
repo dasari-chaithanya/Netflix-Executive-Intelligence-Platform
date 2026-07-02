@@ -57,5 +57,18 @@ with col2:
         }
     )
     
-if st.button("Continue to Growth Intelligence ➔"):
-    st.switch_page("app/pages/05_Growth_Intelligence.py")
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Utilize the Compare Mode API to automatically flag underperforming regional catalogs for strategic review.",
+    impact="Early detection of churn-risk regions.",
+    confidence="90%",
+    priority="MEDIUM"
+)
+
+navigation_footer(
+    next_page_name="Strategy Sandbox", 
+    next_page_path="pages/06_Strategy_Sandbox.py", 
+    next_page_desc="Simulate the impact of modifying catalog characteristics on engagement metrics.", 
+    icon="🧪"
+)

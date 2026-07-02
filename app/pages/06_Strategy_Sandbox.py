@@ -46,4 +46,20 @@ if st.button("Apply Scenario", type="primary", use_container_width=True):
         st.markdown("### 🎯 Recommendation")
         st.success(f"**High Potential**. {market} {genre} currently represents a growing segment. Expanding {content_type} aligns with historical retention data.")
         
-        st.markdown("<div class='text-secondary' style='font-size: 0.8rem; margin-top: 24px;'>Note: Impacts are derived from historical metadata elasticity rules. No financial or ROI assumptions are made.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='text-secondary' style='font-size: 0.8rem; margin-top: 24px;'>Note: Impacts are derived from historical elasticity rules. No financial or ROI assumptions are made.</div>", unsafe_allow_html=True)
+
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Formalize this scenario planning tool into the quarterly budgeting workflow for Content Strategy teams.",
+    impact="Eliminate gut-based acquisition decisions.",
+    confidence="98%",
+    priority="HIGH"
+)
+
+navigation_footer(
+    next_page_name="Insights & Recommendations", 
+    next_page_path="pages/07_Insights_Recommendations.py", 
+    next_page_desc="Review the automated strategic takeaways generated from all active filters.", 
+    icon="🧠"
+)

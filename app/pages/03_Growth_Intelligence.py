@@ -55,22 +55,24 @@ st.markdown("---")
 
 st.markdown("### ⏱️ Insight Timeline")
 st.markdown("""
-<div style="border-left: 2px solid rgba(255,255,255,0.1); padding-left: 16px;">
-    <div style="margin-bottom: 16px;">
-        <span style="background: rgba(229, 9, 20, 0.1); color: #E50914; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px;">2016</span>
-        <span>Netflix expansion accelerates globally.</span>
-    </div>
-    <div style="margin-bottom: 16px;">
-        <span style="background: rgba(229, 9, 20, 0.1); color: #E50914; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px;">2018</span>
-        <span>TV Shows begin to cannibalize Movie acquisition budget.</span>
-    </div>
-    <div style="margin-bottom: 16px;">
-        <span style="background: rgba(229, 9, 20, 0.1); color: #E50914; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px;">2020</span>
-        <span>Global diversification increases heavily (India, South Korea).</span>
-    </div>
-    <div>
-        <span style="background: rgba(229, 9, 20, 0.1); color: #E50914; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-right: 8px;">2022</span>
-        <span>Overall volume growth stabilizes; focus shifts to catalog freshness.</span>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+- **🔴 2016** — Netflix expansion accelerates globally.
+- **🔴 2018** — TV Shows begin to cannibalize Movie acquisition budget.
+- **🔴 2020** — Global diversification increases heavily (India, South Korea).
+- **🔴 2022** — Overall volume growth stabilizes; focus shifts to catalog freshness.
+""")
+
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Shift marketing focus from 'infinite catalog' to 'premium exclusive hits'.",
+    impact="Improve brand perception and justify subscription price increases.",
+    confidence="96%",
+    priority="HIGH"
+)
+
+navigation_footer(
+    next_page_name="Market Expansion", 
+    next_page_path="pages/04_Market_Expansion.py", 
+    next_page_desc="Analyze top-producing countries and localized production growth.", 
+    icon="🌍"
+)

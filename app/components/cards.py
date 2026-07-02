@@ -1,92 +1,76 @@
 import streamlit as st
 import plotly.graph_objects as go
-import uuid
 
 def story_card(title: str, value: str, delta: str = None, trend: str = "flat", 
                period: str = "Last 30 Days", chart_fig: go.Figure = None, 
                summary: str = None, recommendation: dict | str = None, 
                explanation: dict = None, badge: str = None):
     """
-    Renders the unified "One Story" card that executives expect.
+    Renders the unified "One Story" card using Native Streamlit components.
+    NO HTML is used to maintain a premium, unbreakable UI.
     """
-    trend_color_map = {
-        "up": "text-positive",
-        "down": "text-negative",
-        "flat": "text-secondary"
-    }
-    color_cls = trend_color_map.get(trend, "text-secondary")
-    trend_arrow = "↑" if trend == "up" else "↓" if trend == "down" else "→"
-    delta_str = f"{trend_arrow} {delta}" if delta else ""
-    
-    # Badge HTML
-    badge_html = ""
-    if badge:
-        badge_color = "#22C55E" if badge.lower() in ["healthy", "excellent", "growing"] else "#FACC15" if badge.lower() in ["watch", "stable"] else "#EF4444"
-        badge_html = f"<span style='background-color: {badge_color}20; color: {badge_color}; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: bold; margin-left: 8px;'>{badge}</span>"
-
-    # Start Card
-    st.markdown('<div class="story-card">', unsafe_allow_html=True)
-    
-    # KPI Header
-    st.markdown(f"""
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px;">
-        <div>
-            <div class="text-secondary" style="font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">{title} {badge_html}</div>
-            <div style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">{value}</div>
-        </div>
-        <div style="text-align: right;">
-            <div class="{color_cls}" style="font-size: 1.1rem; font-weight: 600;">{delta_str}</div>
-            <div class="text-secondary" style="font-size: 0.8rem;">{period}</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Chart
-    if chart_fig:
-        st.plotly_chart(chart_fig, use_container_width=True, config={'displayModeBar': False})
+    with st.container(border=True):
+        # KPI Header
+        badge_str = f" • [{badge}]" if badge else ""
+        delta_color = "normal" if trend == "up" else "inverse" if trend == "down" else "off"
+        # If trend is flat, delta color is off. Wait, if it's a good down (like churn), inverse is red.
+        # But for generic, we'll map up to normal (green), down to inverse (red) or normal (green) depending.
+        # Streamlit delta handles + as green and - as red by default.
+        st.metric(label=f"{title}{badge_str}", value=value, delta=f"{delta} ({period})")
         
-    # Storytelling / Recommendations
-    if summary or recommendation:
-        st.markdown("<hr style='border-top: 1px solid rgba(255,255,255,0.05); margin: 16px 0;'/>", unsafe_allow_html=True)
-        if summary:
-            st.markdown(f"<p style='font-size: 0.95rem; line-height: 1.5;'>{summary}</p>", unsafe_allow_html=True)
-        if recommendation:
-            if isinstance(recommendation, str):
-                rec_html = f"<div style='font-size: 0.9rem;'>{recommendation}</div>"
-            else:
-                # Advanced dictionary recommendation
-                rec_html = f"""
-                <div style='font-size: 0.85rem; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;'>
-                    <div><b>Priority:</b> <span style='color: #E50914;'>{recommendation.get('priority', 'HIGH')}</span></div>
-                    <div><b>Impact:</b> {recommendation.get('impact', '★★★★☆')}</div>
-                    <div><b>Reach:</b> {recommendation.get('reach', 'Global')}</div>
-                    <div><b>Confidence:</b> {recommendation.get('confidence', 'High')}</div>
-                </div>
-                <div style='font-size: 0.9rem; margin-top: 8px;'><b>Action:</b> {recommendation.get('action', '')}</div>
-                """
-            st.markdown(f"""
-            <div style="background: rgba(34, 197, 94, 0.1); border-left: 3px solid #22C55E; padding: 12px; border-radius: 4px; margin-top: 12px;">
-                <div style="color: #22C55E; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Strategic Recommendation</div>
-                {rec_html}
-            </div>
-            """, unsafe_allow_html=True)
+        # Chart
+        if chart_fig:
+            st.plotly_chart(chart_fig, use_container_width=True, config={'displayModeBar': False})
             
-    # Explain This Chart button (Rule-based)
-    if explanation:
-        with st.expander("💡 Explain Insight"):
-            st.markdown(f"**Why this matters**: {explanation.get('why', 'Context not provided.')}")
-            st.markdown(f"**Business impact**: {explanation.get('impact', 'Impact not provided.')}")
-            st.markdown(f"**Opportunity**: {explanation.get('opportunity', 'None identified.')}")
+        # Storytelling / Recommendations
+        if summary or recommendation:
+            st.divider()
+            if summary:
+                st.markdown(summary)
+            if recommendation:
+                st.markdown("### Strategic Recommendation")
+                if isinstance(recommendation, str):
+                    st.markdown(recommendation)
+                else:
+                    priority = recommendation.get('priority', 'HIGH')
+                    p_emoji = "🔴" if priority == 'HIGH' else "🟡" if priority == 'MEDIUM' else "🟢"
+                    
+                    st.markdown(f"**{p_emoji} {priority} PRIORITY**\n\n**{recommendation.get('impact', '★★★★☆')}** Impact\n\n**🌍 {recommendation.get('reach', 'Global')}** Reach\n\n**🎯 {recommendation.get('confidence', 'High')}** Confidence")
+                    st.markdown(f"**Action**: {recommendation.get('action', '')}")
+                
+        # Explain This Chart button
+        if explanation:
+            with st.expander("💡 Explain Insight"):
+                st.markdown(f"**Why this matters**: {explanation.get('why', 'Context not provided.')}")
+                st.markdown(f"**Business impact**: {explanation.get('impact', 'Impact not provided.')}")
+                if 'opportunity' in explanation:
+                    st.markdown(f"**Opportunity**: {explanation.get('opportunity')}")
 
-    # End Card
-    st.markdown('</div>', unsafe_allow_html=True)
+def executive_decision_closer(recommendation: str, impact: str, confidence: str, priority: str = "HIGH"):
+    """
+    Standard closer block to be appended to every page, shifting from insight to action.
+    """
+    st.divider()
+    st.subheader("Executive Decision")
+    
+    col1, col2, col3 = st.columns(3)
+    p_emoji = "🔴" if priority == 'HIGH' else "🟡" if priority == 'MEDIUM' else "🟢"
+    
+    with col1:
+        st.metric("Priority", f"{p_emoji} {priority}")
+    with col2:
+        st.metric("Confidence", f"🎯 {confidence}")
+    with col3:
+        st.metric("Expected Impact", impact)
+        
+    st.success(f"**Recommendation**: {recommendation}")
 
-# Keep the old cards for backwards compatibility if needed, but we will migrate pages to story_card.
-def kpi_card(label: str, value: str, delta: str = None, trend: str = "flat", info: str = None):
-    pass
-
-def insight_card(title: str, text: str):
-    pass
-
-def recommendation_card(title: str, action: str):
-    pass
+def navigation_footer(next_page_name: str, next_page_path: str, next_page_desc: str, icon: str = "📈"):
+    """
+    Polished navigation footer to replace simple buttons.
+    """
+    st.divider()
+    st.markdown(f"### Next Module")
+    st.markdown(f"**{icon} {next_page_name}**")
+    st.markdown(next_page_desc)
+    st.page_link(next_page_path, label=f"Open {next_page_name} →", icon="👉")

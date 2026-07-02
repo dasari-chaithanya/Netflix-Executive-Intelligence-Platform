@@ -146,30 +146,18 @@ st.markdown("---")
 
 # Executive Scorecard
 st.markdown("### 📊 Executive Scorecard")
-st.markdown("""
-<div style="display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 24px; border-radius: 8px;">
-    <div style="text-align: center;">
-        <div style="color: #B3B3B3; font-size: 0.8rem; text-transform: uppercase;">Content Diversity</div>
-        <div style="font-size: 2rem; font-weight: 700; color: #22C55E;">91</div>
-    </div>
-    <div style="text-align: center;">
-        <div style="color: #B3B3B3; font-size: 0.8rem; text-transform: uppercase;">Freshness</div>
-        <div style="font-size: 2rem; font-weight: 700; color: #FACC15;">88</div>
-    </div>
-    <div style="text-align: center;">
-        <div style="color: #B3B3B3; font-size: 0.8rem; text-transform: uppercase;">Global Reach</div>
-        <div style="font-size: 2rem; font-weight: 700; color: #22C55E;">95</div>
-    </div>
-    <div style="text-align: center;">
-        <div style="color: #B3B3B3; font-size: 0.8rem; text-transform: uppercase;">Catalog Balance</div>
-        <div style="font-size: 2rem; font-weight: 700; color: #22C55E;">90</div>
-    </div>
-    <div style="text-align: center; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 32px;">
-        <div style="color: #E50914; font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Overall Platform Health</div>
-        <div style="font-size: 2.5rem; font-weight: 800; color: #FFF;">91</div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+with st.container(border=True):
+    col_a, col_b, col_c, col_d, col_e = st.columns(5)
+    with col_a:
+        st.metric("Content Diversity", "91", "Healthy")
+    with col_b:
+        st.metric("Freshness", "88", "Watch")
+    with col_c:
+        st.metric("Global Reach", "95", "Excellent")
+    with col_d:
+        st.metric("Catalog Balance", "90", "Healthy")
+    with col_e:
+        st.metric("Overall Health", "91", "A-")
 
 st.markdown("---")
 
@@ -181,3 +169,18 @@ with st.expander("Which genre dominates?"):
 with st.expander("Why is India growing fastest?"):
     st.write("A combination of mobile-only subscription tiers and heavy investment in Bollywood acquisitions triggered explosive growth in the APAC region.")
 
+from app.components.cards import executive_decision_closer, navigation_footer
+
+executive_decision_closer(
+    recommendation="Maintain current acquisition pacing, but reallocate 15% of movie budget into high-retention TV series.",
+    impact="Lower subscriber churn by 0.5%",
+    confidence="94%",
+    priority="MEDIUM"
+)
+
+navigation_footer(
+    next_page_name="Content Portfolio", 
+    next_page_path="pages/02_Content_Portfolio.py", 
+    next_page_desc="Deep dive into ratings, genres, and the structural composition of the global catalog.", 
+    icon="🎬"
+)

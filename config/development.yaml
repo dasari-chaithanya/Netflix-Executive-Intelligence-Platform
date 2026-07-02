@@ -1,0 +1,8 @@
+app:
+  name: "Netflix Catalog Intelligence (Dev)"
+  log_level: "DEBUG"
+  cache_ttl_seconds: 60
+
+data:
+  raw_path: "data/raw/netflix_titles.csv"
+  processed_path: "data/processed/netflix_features.parquet"

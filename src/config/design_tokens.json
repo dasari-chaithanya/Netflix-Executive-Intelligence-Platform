@@ -1,0 +1,47 @@
+{
+    "color": {
+        "brand": {
+            "red": "#E50914"
+        },
+        "status": {
+            "positive": "#22C55E",
+            "negative": "#EF4444",
+            "warning": "#FACC15"
+        },
+        "chart": {
+            "primary": "#38BDF8",
+            "secondary": "#A855F7",
+            "tertiary": "#FACC15",
+            "quaternary": "#14B8A6",
+            "quinary": "#E50914"
+        },
+        "background": {
+            "app_dark": "#000000",
+            "surface_dark": "#141414",
+            "app_dark_plus": "#090909",
+            "surface_dark_plus": "#1A1A1A",
+            "app_light": "#F8F9FA",
+            "surface_light": "#FFFFFF"
+        },
+        "text": {
+            "primary_dark": "#FFFFFF",
+            "secondary_dark": "#B3B3B3",
+            "primary_light": "#1A1A1A",
+            "secondary_light": "#666666"
+        },
+        "border": {
+            "subtle_dark": "rgba(255, 255, 255, 0.05)",
+            "subtle_light": "rgba(0, 0, 0, 0.05)"
+        }
+    },
+    "typography": {
+        "fontFamily": {
+            "base": "Inter, sans-serif"
+        }
+    },
+    "spacing": {
+        "compact": "8px",
+        "comfortable": "16px",
+        "presentation": "24px"
+    }
+}

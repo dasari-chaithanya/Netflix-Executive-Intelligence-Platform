@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "netflix-catalog-intelligence"
+version = "1.0.0"
+description = "Netflix Content Strategy & Catalog Intelligence Platform"
+authors = ["Data Platform Engineering Team"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = [
+    "tests",
+]

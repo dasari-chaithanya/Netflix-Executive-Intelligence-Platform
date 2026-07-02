@@ -87,13 +87,20 @@ def duplicate_summary(df: pd.DataFrame, subset: list[str] | None = None) -> dict
     return {"full_duplicates": int(full_dupes), "subset_duplicates": subset_dupes}
 
 
-def quick_profile(df: pd.DataFrame) -> None:
-    """Print a quick data profile to console."""
+def quick_profile(df: pd.DataFrame):
+    """Print a quick profile of the dataset."""
     print(f"{'─'*50}")
     print(f"Shape          : {df.shape[0]:,} rows × {df.shape[1]} columns")
     print(f"Memory usage   : {df.memory_usage(deep=True).sum() / 1024**2:.2f} MB")
     print(f"Missing cells  : {df.isnull().sum().sum():,}")
-    print(f"Duplicate rows : {df.duplicated().sum():,}")
+    
+    # Safely compute duplicated rows by excluding unhashable columns (like lists)
+    hashable_cols = [col for col in df.columns if not df[col].apply(lambda x: isinstance(x, list)).any()]
+    if hashable_cols:
+        print(f"Duplicate rows : {df.duplicated(subset=hashable_cols).sum():,}")
+    else:
+        print("Duplicate rows : N/A (unhashable types)")
+        
     print(f"{'─'*50}")
     print(df.dtypes.to_string())
     print(f"{'─'*50}")

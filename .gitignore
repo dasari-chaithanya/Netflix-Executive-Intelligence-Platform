@@ -1,53 +1,30 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-*.egg-info/
-dist/
-build/
-*.egg
-.eggs/
 
-# Virtual Environments
+# Data & Secrets
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+.env
+.streamlit/secrets.toml
+
+# Logs
+logs/*.log
+
+# Environments
 .env
 .venv
 env/
 venv/
 ENV/
 
-# Jupyter Notebook Checkpoints
-.ipynb_checkpoints/
-*.ipynb.tmp
-
-# Data — never commit raw or processed data to git
-data/raw/*.csv
-data/raw/*.json
-data/processed/*.csv
-data/processed/*.parquet
-data/external/
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Outputs (generated files — can be reproduced)
-images/charts/
-images/dashboard/
-reports/*.pdf
-
-# Secrets & credentials
-.env
-*.env
-secrets.yaml
-kaggle.json
-
-# Logs
-*.log
-logs/
-
-# OS
-desktop.ini
+# IDEs
+.vscode/
+.idea/

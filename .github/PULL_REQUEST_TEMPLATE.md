@@ -1,29 +1,13 @@
-## Pull Request Description
+## Description
+<!-- Please include a summary of the change and which issue is fixed. Include relevant motivation and context. -->
 
-### What does this PR do?
-A clear and concise description of what this pull request changes.
+## Type of change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 
-### Type of Change
-- [ ] Bug fix
-- [ ] New feature / analysis
-- [ ] Visualization update
-- [ ] Documentation update
-- [ ] Refactoring / code quality
-
-### Related Issues
-Closes # (issue number)
-
-### Checklist
-- [ ] Code follows PEP 8 style guidelines
-- [ ] Docstrings added to new functions
-- [ ] No hardcoded paths (using `src/config.py`)
-- [ ] Notebooks execute top-to-bottom without errors
-- [ ] New charts saved to correct `images/charts/<category>/` directory
-- [ ] `requirements.txt` updated if new dependencies added
-- [ ] README updated if project structure changes
-
-### Testing
-Describe how you tested your changes.
-
-### Screenshots (if applicable)
-Add screenshots of new or updated visualizations.
+## Checklist:
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my own code
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing tests pass locally with my changes

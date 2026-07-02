@@ -71,5 +71,8 @@ class ExecutiveViewModel(BaseViewModel):
             "recommendation": recommendation_data,
             "avg_age": age_val,
             "total_titles": len(self.df),
-            "freshness_pct": f"{freshness_val:.1f}%"
+            "freshness_pct": f"{freshness_val:.1f}%",
+            "movie_ratio": f"{(len(self.df[self.df['type'] == 'Movie']) / len(self.df)) * 100:.1f}%" if not self.df.empty else "0%",
+            "mature_share": f"{mature_val:.1f}%",
+            "freshness_status": status
         }

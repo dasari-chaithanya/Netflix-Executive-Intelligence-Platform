@@ -191,11 +191,18 @@ make run
 - **Why the ViewModel layer?** "It decouples the UI from the data. If the underlying database changes from a Parquet file to Snowflake or BigQuery, the UI code doesn't need a single modification."
 - **How did you handle performance?** "I utilized `@st.cache_data` on the ViewModels to prevent re-querying the data pipeline on every UI interaction, guaranteeing near-instant rendering."
 
-## 🔮 Future Scope
+## 🔮 Future Enhancements
 - Integration with an LLM (e.g. GPT-4) to power natural language querying for the "Ask the Platform" feature.
 - Migrate the backend Parquet data store to a cloud data warehouse (Snowflake / BigQuery).
 - Introduce a secure authentication layer via OAuth2.
 
-## 🤝 Connect
-- **LinkedIn:** https://www.linkedin.com/in/dasari-chaithanya-sidhartha-8a208b3a3?utm_source=share_via&utm_content=profile&utm_medium=member_android
-- **Email:**chaithanyadasari24@gmail.com
+## ⚖️ License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Dasari Chaithanya Siddhartha**
+
+- **LinkedIn:** [Dasari Chaithanya Siddhartha](https://www.linkedin.com/in/dasari-chaithanya-sidhartha-8a208b3a3/)
+- **GitHub:** [dasari-chaithanya](https://github.com/dasari-chaithanya)
+- **Email:** [chaithanyadasari24@gmail.com](mailto:chaithanyadasari24@gmail.com)

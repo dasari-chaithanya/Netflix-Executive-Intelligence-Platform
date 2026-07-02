@@ -197,6 +197,5 @@ make run
 - Introduce a secure authentication layer via OAuth2.
 
 ## 🤝 Connect
-- **LinkedIn:** [Your LinkedIn Profile URL]
-- **Portfolio:** [Your Portfolio Website URL]
-- **Email:** [Your Email Address]
+- **LinkedIn:** https://www.linkedin.com/in/dasari-chaithanya-sidhartha-8a208b3a3?utm_source=share_via&utm_content=profile&utm_medium=member_android
+- **Email:**chaithanyadasari24@gmail.com

@@ -1,22 +1,20 @@
-.PHONY: install run test format lint clean
+.PHONY: install test lint run clean
 
 install:
+	pip install --upgrade pip
 	pip install -r requirements.txt
-	pre-commit install
-
-run:
-	streamlit run app/main.py
 
 test:
 	pytest tests/
 
-format:
-	black .
-	isort .
-
 lint:
-	ruff check .
-	mypy src/ app/
+	flake8 src app tests
+	black --check src app tests
+
+run:
+	streamlit run app/main.py
 
 clean:
-	rm -rf __pycache__ .pytest_cache logs/*.log
+	find . -type d -name "__pycache__" -exec rm -rf {} +
+	find . -type f -name "*.pyc" -delete
+	rm -rf .pytest_cache

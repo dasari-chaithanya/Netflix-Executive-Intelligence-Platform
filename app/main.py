@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 from app.theme.manager import inject_custom_css
-from app.components.filters import render_global_filters
+from app.components.filters import global_filter_panel
 from app.state.store import init_state, get_theme, set_theme, get_density, set_density
 
 # Initialize state and inject CSS
@@ -88,7 +88,7 @@ with st.sidebar:
     st.markdown("---")
     
     # Render data filters
-    render_global_filters()
+    global_filter_panel()
 
 # Default routing to landing page
 st.switch_page("app/pages/01_Executive_Overview.py")

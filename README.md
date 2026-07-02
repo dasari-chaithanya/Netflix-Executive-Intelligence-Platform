@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/hero_banner.png" alt="Netflix Executive Intelligence Platform (NEIP)" width="100%" />
+  <img src="assets/hero_banner.png" alt="Netflix Executive Intelligence Platform (NEIP)" width="100%" />
 
   # Netflix Executive Intelligence Platform (NEIP)
 
@@ -13,7 +13,7 @@
 <br>
 
 <div align="center">
-  <img src="docs/assets/demo/demo_placeholder.gif" alt="NEIP Demo" width="800px" />
+  <img src="assets/demo/demo_placeholder.gif" alt="NEIP Demo" width="800px" />
   <p><i>The Executive Intelligence Platform in action.</i></p>
 </div>
 
@@ -77,55 +77,55 @@ graph TD
 
 <details>
 <summary><b>1. Executive Overview</b></summary><br>
-<img src="docs/assets/screenshots/executive_overview_placeholder.png" alt="Executive Overview" width="800px">
+<img src="assets/screenshots/executive_overview_placeholder.png" alt="Executive Overview" width="800px">
 <i>Immediate strategic alerts and a 5-pillar health scorecard.</i>
 </details>
 
 <details>
 <summary><b>2. Content Portfolio</b></summary><br>
-<img src="docs/assets/screenshots/content_portfolio_placeholder.png" alt="Content Portfolio" width="800px">
+<img src="assets/screenshots/content_portfolio_placeholder.png" alt="Content Portfolio" width="800px">
 <i>Deep dive into structural composition and rating focus of the global catalog.</i>
 </details>
 
 <details>
 <summary><b>3. Growth Intelligence</b></summary><br>
-<img src="docs/assets/screenshots/growth_intelligence_placeholder.png" alt="Growth Intelligence" width="800px">
+<img src="assets/screenshots/growth_intelligence_placeholder.png" alt="Growth Intelligence" width="800px">
 <i>Tracking historical shifts from volume acquisition to premium originals.</i>
 </details>
 
 <details>
 <summary><b>4. Market Expansion</b></summary><br>
-<img src="docs/assets/screenshots/market_expansion_placeholder.png" alt="Market Expansion" width="800px">
+<img src="assets/screenshots/market_expansion_placeholder.png" alt="Market Expansion" width="800px">
 <i>Identifies global production hotspots and under-indexed regions.</i>
 </details>
 
 <details>
 <summary><b>5. Audience Strategy</b></summary><br>
-<img src="docs/assets/screenshots/audience_strategy_placeholder.png" alt="Audience Strategy" width="800px">
+<img src="assets/screenshots/audience_strategy_placeholder.png" alt="Audience Strategy" width="800px">
 <i>Format and genre analysis to drive long-term viewer retention.</i>
 </details>
 
 <details>
 <summary><b>6. Compare Markets</b></summary><br>
-<img src="docs/assets/screenshots/compare_markets_placeholder.png" alt="Compare Markets" width="800px">
+<img src="assets/screenshots/compare_markets_placeholder.png" alt="Compare Markets" width="800px">
 <i>Side-by-side benchmarking of regional content strategies.</i>
 </details>
 
 <details>
 <summary><b>7. Strategy Sandbox</b></summary><br>
-<img src="docs/assets/screenshots/strategy_sandbox_placeholder.png" alt="Strategy Sandbox" width="800px">
+<img src="assets/screenshots/strategy_sandbox_placeholder.png" alt="Strategy Sandbox" width="800px">
 <i>Calculates the impact of hypothetical investments on diversity and freshness.</i>
 </details>
 
 <details>
 <summary><b>8. Insights & Recommendations</b></summary><br>
-<img src="docs/assets/screenshots/insights_recommendations_placeholder.png" alt="Recommendations" width="800px">
+<img src="assets/screenshots/insights_recommendations_placeholder.png" alt="Recommendations" width="800px">
 <i>Rule-based generation of actionable business directives.</i>
 </details>
 
 <details>
 <summary><b>9. Business Glossary</b></summary><br>
-<img src="docs/assets/screenshots/business_glossary_placeholder.png" alt="Business Glossary" width="800px">
+<img src="assets/screenshots/business_glossary_placeholder.png" alt="Business Glossary" width="800px">
 <i>Single source of truth for all formulas and metric definitions.</i>
 </details>
 
@@ -190,6 +190,10 @@ make run
 - **Why Streamlit?** "Streamlit allows rapid iteration of the presentation layer in pure Python, enabling me to focus my engineering efforts on the backend Analytics Engine rather than managing React state."
 - **Why the ViewModel layer?** "It decouples the UI from the data. If the underlying database changes from a Parquet file to Snowflake or BigQuery, the UI code doesn't need a single modification."
 - **How did you handle performance?** "I utilized `@st.cache_data` on the ViewModels to prevent re-querying the data pipeline on every UI interaction, guaranteeing near-instant rendering."
+
+## 🙏 Acknowledgements
+- Dataset provided by Kaggle and FlixPatrol.
+- Inspiration drawn from enterprise BI architectures and modern UI/UX principles.
 
 ## 🔮 Future Enhancements
 - Integration with an LLM (e.g. GPT-4) to power natural language querying for the "Ask the Platform" feature.

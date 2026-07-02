@@ -71,11 +71,11 @@ def generate_css(tokens: dict, current_theme: str, layout_density: str = "comfor
     }}
     
     .text-positive {{
-        color: {tokens.get('color', {{}}).get('status', {{}}).get('positive', '#22C55E')} !important;
+        color: {tokens.get('color', dict()).get('status', dict()).get('positive', '#22C55E')} !important;
     }}
     
     .text-negative {{
-        color: {tokens.get('color', {{}}).get('status', {{}}).get('negative', '#EF4444')} !important;
+        color: {tokens.get('color', dict()).get('status', dict()).get('negative', '#EF4444')} !important;
     }}
     
     /* Brand accents */
